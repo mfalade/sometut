@@ -1,0 +1,21 @@
+{
+  "name": "jobify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm t",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "author": "mfalade",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongoose": "^4.9.3",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
+}
