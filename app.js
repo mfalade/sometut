@@ -1,4 +1,5 @@
 {
+	require('dotenv').config();
 	const express = require('express');
 	const app = express();
 	const morgan = require('morgan');
@@ -24,7 +25,7 @@
 		jobModel.seedJobs();
 	});
 
-	app.listen(3000, () => {
-		console.log('app started');
+	app.listen(process.env.PORT, () => {
+		console.log('app started on port: ', process.env.PORT);
 	});
 }
