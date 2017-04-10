@@ -5,10 +5,9 @@
 	const express = require('express');
 	const app = express();
 	const morgan = require('morgan');
-	const mongoose = require('mongoose');
 	const jobListingsRouter = require(`${__BASE}/routes`);
 	const jobModelUtils = require(`${process.cwd()}/utils/jobsUtils`);
-	const APP_ENV = process.NODE_ENV || 'development';
+	const APP_ENV = process.env.NODE_ENV || 'development';
 	const config = require(`${__BASE}/config/${APP_ENV}`);
 
 	app.set('view engine', 'pug');
