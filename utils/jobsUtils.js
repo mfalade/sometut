@@ -36,6 +36,8 @@ const seedJobs = () => {
   });
 };
 
+const connectDb = Promise.promisify(mongoose.connect, {context: mongoose});
 
 exports.findJobs = findJobs;
 exports.seedJobs = seedJobs;
+exports.connectDb = connectDb;

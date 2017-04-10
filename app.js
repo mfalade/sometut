@@ -22,12 +22,12 @@
 		res.render('index');
 	});
 
-	mongoose.connect(config.db.connection);
-	const connection = mongoose.connection;
-	connection.once('open', () => {
-		console.log(`connected to db using configuration for env: ${APP_ENV}`);
-		jobModelUtils.seedJobs();
-	});
+	jobModelUtils
+		.connectDb(config.db.connection)
+		.then(() => {
+			console.log(`connected to db using configuration for env: ${APP_ENV}`);
+			jobModelUtils.seedJobs();
+		});
 
 	app.listen(config.port, () => {
 		console.log('app started on port: ', config.port);

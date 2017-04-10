@@ -8,6 +8,5 @@
     vm.jobs = $resource('api/jobs').query();
   }
 
-
   shopifyCtrl.$inject = ['$resource'];
 }
