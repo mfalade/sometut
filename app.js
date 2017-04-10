@@ -1,11 +1,15 @@
 {
 	require('dotenv').config();
+	
+	global.__BASE = __dirname;
 	const express = require('express');
 	const app = express();
 	const morgan = require('morgan');
 	const mongoose = require('mongoose');
-	const jobListingsRouter = require('./routes/');
-	const jobModel = require('./models/jobs');
+	const jobListingsRouter = require(`${__BASE}/routes`);
+	const jobModelUtils = require(`${process.cwd()}/utils/jobsUtils`);
+	const APP_ENV = process.NODE_ENV || 'development';
+	const config = require(`${__BASE}/config/${APP_ENV}`);
 
 	app.set('view engine', 'pug');
 	app.set('views','./views');
@@ -18,14 +22,14 @@
 		res.render('index');
 	});
 
-	mongoose.connect('mongodb://mayor:jobify@ds149800.mlab.com:49800/jobify');
+	mongoose.connect(config.db.connection);
 	const connection = mongoose.connection;
 	connection.once('open', () => {
-		console.log('connected to mongo db..');
-		jobModel.seedJobs();
+		console.log(`connected to db using configuration for env: ${APP_ENV}`);
+		jobModelUtils.seedJobs();
 	});
 
-	app.listen(process.env.PORT, () => {
-		console.log('app started on port: ', process.env.PORT);
+	app.listen(config.port, () => {
+		console.log('app started on port: ', config.port);
 	});
 }

@@ -4,19 +4,21 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "npm t",
+    "test": "mocha",
     "start": "node app",
     "dev": "nodemon app"
   },
   "author": "mfalade",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "dotenv": "^4.0.0",
     "express": "^4.15.2",
     "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
-    "pug": "^2.0.0-beta11",
-    "dotenv": "^4.0.0"
+    "pug": "^2.0.0-beta11"
   },
   "devDependencies": {
+    "chai": "^3.5.0"
   }
 }

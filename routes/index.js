@@ -1,6 +1,8 @@
-const express = require('express')
+const mongoose = require("mongoose");
+const express = require("express")
 const jobListingsRouter = express.Router();
-const Jobs = require(process.cwd() + '/models/jobs').Jobs;
+
+const Jobs = require(`${process.cwd()}/models/jobs`)
 
 jobListingsRouter.get('/jobs', (req, res) => {
   Jobs.find({}, (err, jobs) => {
