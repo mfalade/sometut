@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require("mongoose");
 const express = require("express")
 const jobListingsRouter = express.Router();

@@ -1,3 +1,5 @@
+'use strict';
+
 const expect = require("chai").expect;
 const mongoose = require("mongoose");
 const Jobs = require(`${process.cwd()}/models/jobs`);

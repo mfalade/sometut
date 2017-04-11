@@ -1,3 +1,5 @@
+'use strict';
+
 const configFile = process.env.NODE_ENV || "default";
 const config = require(`${__BASE}/config`);
 

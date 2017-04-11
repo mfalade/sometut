@@ -1,5 +1,8 @@
+'use strict';
+
 module.exports = {
 	port: 3000,
+  log: "debug",
 	cookie: {
 		secret: process.env.COOKIE_SECRET_KEY,
 	},
