@@ -15,4 +15,14 @@ jobListingsRouter.get('/jobs', (req, res) => {
   })
 });
 
+jobListingsRouter.post('/jobs', (req, res) => {
+  var newJob = new Jobs(req.body);
+  newJob.save((err, job) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.send(job);
+  })
+});
+
 module.exports = jobListingsRouter;

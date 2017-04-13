@@ -8,8 +8,19 @@ html
     body(ng-app="Shopify")
       div.container(ng-controller="shopifyCtrl as vm")
         h3 Welcome to Jobify
-        p Find your dream job below
+        hr
+        h4 Add a job
+        form.form-inline.mbm(ng-submit="vm.postJob()", name="jobForm")
+          .form-group
+            label.sr-only(for="jobTitle") Job Title:
+            input.form-control(type="text", id="jobTitle", ng-model="vm.jobTitle")
+          .form-group.mls
+            label.sr-only(for="jobDescription") Job Title:
+            input.form-control(type="text", id="jobDescription", ng-model="vm.jobDescription")
+          button.btn.btn-info.mls(type="submit") Post Job
 
+        hr
+        h4.mbs Job listings
         .list-group
           a.list-group-item(ng-repeat="job in vm.jobs")
             h4.list-group-item-heading {{ job.title }}
@@ -18,3 +29,4 @@ html
       script(src="bower_components/angular/angular.min.js")
       script(src="bower_components/angular-resource/angular-resource.min.js")
       script(src="js/main.js")
+      script(src="js/jobs.js")
